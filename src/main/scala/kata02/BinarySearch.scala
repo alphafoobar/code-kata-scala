@@ -5,16 +5,12 @@ class BinarySearch {
         if (array.length == 0) {
             return -1
         }
-        if (array.length == 1 && array(0) == key) {
+        if (array.length == 1) {
             return if (array(0) == key) 0 else -1
         }
-        val mid = divideForMid(array.length)
+        val mid = array.length / 2
         val item = array(mid)
-        if (item == key) {
-            return mid
-        }
 
-        if (array.length > 1) {
             if (item > key) {
                 val x = chop(key, array.slice(0, mid - 1))
                 return x
@@ -24,8 +20,8 @@ class BinarySearch {
                 val x = chop(key, array.slice(mid + 1, array.length))
                 return if (x < 0) x else mid + x
             }
-        }
-        -1
+
+        return mid
     }
 
     private def divideForMid(length: Int): Int = {
