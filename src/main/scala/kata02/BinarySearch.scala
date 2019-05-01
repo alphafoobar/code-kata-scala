@@ -5,9 +5,7 @@ class BinarySearch {
         if (array.length == 0) {
             return -1
         }
-        if (array.length == 1) {
-            return if (array(0) == key) 0 else -1
-        }
+
         val mid = array.length / 2
         val item = array(mid)
 
@@ -21,6 +19,6 @@ class BinarySearch {
                 return if (x < 0) x else mid + x
             }
 
-        return mid
+        return if (item == key) mid else -1
     }
 }
