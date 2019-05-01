@@ -23,8 +23,4 @@ class BinarySearch {
 
         return mid
     }
-
-    private def divideForMid(length: Int): Int = {
-        length / 2
-    }
 }
