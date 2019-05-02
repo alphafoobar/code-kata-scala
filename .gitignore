@@ -74,6 +74,6 @@ local.properties
 .scala_dependencies
 .worksheet
 
-/project/build.properties
+project/target
 *.class
 *.log
