@@ -1,6 +1,6 @@
 package kata02
 
-class BinarySearch {
+object BinarySearch {
     def chop(key: Int, array: Array[Int]): Int = {
         if (array.length == 0) {
             return -1
@@ -9,15 +9,18 @@ class BinarySearch {
         val mid = array.length / 2
         val item = array(mid)
         if (item == key) {
-            return mid;   
+            return mid
         }
-        if (array.length > 1 && item > key) {
-            return chop(key, array.slice(0, mid - 1))
+        if (item > key) {
+            return chop(key, array.slice(0, mid))
         }
-        if (array.length > 1 && item < key) {
-            val x = chop(key, array.slice(mid + 1, array.length))
-            return if (x == -1) x else mid + x
+        if (item < key) {
+            val start = mid + 1
+            val x = chop(key, array.slice(start, array.length))
+            if (x > -1) {
+                return start + x
+            }
         }
-        return -1
+        -1
     }
 }
